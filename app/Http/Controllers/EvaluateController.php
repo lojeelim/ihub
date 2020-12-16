@@ -14,11 +14,11 @@ class EvaluateController extends Controller
      */
     public function index()
     {
-        if(empty(auth()->user()->evaluation)){
-            return view('forums.forum-welcome');
-        }
+        // if(empty(auth()->user()->evaluation)){
+        //     return view('forums.forum-welcome');
+        // }
 
-        return redirect('forum');
+        // return redirect('forum');
     }
     /**
      * Show the form for creating a new resource.

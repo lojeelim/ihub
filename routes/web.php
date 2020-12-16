@@ -44,5 +44,6 @@ Route::resource('/comment','CommentController');
 
 Route::resource('/welcome-forum','EvaluateController');
 
+Route::resource('reply','ReplyCommentController');
 
 // Route::resource('/letstalk','LetstalkController');

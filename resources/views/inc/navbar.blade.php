@@ -121,8 +121,8 @@
                 @endif
             @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link btn rounded" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        <img style="width:32px;height:32px;border-radius:24px" src="/storage/user_images/{{Auth::user()->user_image}}" alt=""><i class="ml-1 fa fa-chevron-circle-down"></i>
+                    <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img style="width:32px;height:32px;border-radius:24px" src="/storage/user_images/{{Auth::user()->user_image}}" alt=""></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right position-absolute mt-2 p-0" aria-labelledby="navbarDropdown">
                         <div class="dropdown-header bg-green text-white text-uppercase font-weight-bold">
@@ -133,6 +133,10 @@
                             <a class="dropdown-item" href="/profile">
                                 <i class="fa fa-user-circle"></i> 
                                     Profile
+                            </a>
+                            <a class="dropdown-item" href="">
+                                <i class="fa fa-cog"></i> 
+                                    Settings
                             </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();

@@ -72,20 +72,20 @@
                         @method('PUT')
                         @csrf
                             <div class="row justify-content-center">
-                                <div class="col-8 col-sm-8 col-md-5 col-lg-5">
+                                <div class="col-12 col-sm-12 col-md-5 col-lg-5">
                                     <div class="text-center">
                                         <h5 class=" font-weight-bold">
                                             Cover
                                         </h5>
                                     </div>
                                     <div class="card border-0 shadow-sm  bg-white p-3">
-                                        <img class="rounded-top"  style="height:18em;" src="/storage/forum_cover_images/{{$data->cover_image}}"  alt="">
+                                        <img class="rounded-top w-100 h-100"  src="/storage/forum_cover_images/{{$data->cover_image}}"  alt="">
                                         <div class="bg-white shadow-sm rounded-bottom">
                                             <div class="btn-group pt-2">
                                                 <label class=" p-1 mx-2" for="e-cover_image">
                                                     <i class="fa fa-image fa-2x "></i>
                                                 </label>
-                                                <input class="form-control mr-2 border-0 @error('cover_image') is-invalid @enderror" type="file" name="cover_image" id="e-cover_image">
+                                                <input class="form-control mr-2 border-0 @error('cover_image') is-invalid @enderror text-dark" type="file" name="cover_image" id="e-cover_image">
                                                 @error('cover_image')
                                                     <span class="invalid-feedback" role="alert">
                                                         <strong>{{ $message }}</strong>

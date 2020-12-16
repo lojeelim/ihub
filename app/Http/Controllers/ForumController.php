@@ -60,7 +60,7 @@ class ForumController extends Controller
     public function store(Request $request)
     {
         $this->validate($request ,[
-            'title' => 'required',
+            'title' => 'required|max:30',
             'cover_image' => 'image|nullable|max:1999',
             'content' => 'required'
         ]);
@@ -122,11 +122,11 @@ class ForumController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request ,[
-            'title' => 'required',
+            'title' => 'required|max:30',
             'cover_image' => 'image|nullable|max:1999',
-            'content' => 'required'
+            'content' => 'required|'
         ]);
-        
+            
         $forum = Forum::find($id);
         $forum->title = $request->input('title');
         $forum->content = $request->input('content');

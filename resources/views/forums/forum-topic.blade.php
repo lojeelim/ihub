@@ -4,7 +4,7 @@
         <div class="dashboard-section">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-sm-11 col-md-9 col-lg-9 mt-3">
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-9 mt-3">
                         <div class="card border-0 shadow-sm bg-wave-ash-2">
                             <div class="card-header bg-white p-0 border-0">
                                 <div class="row p-2">
@@ -45,10 +45,11 @@
                                 <p class="">
                                     {{$forum->content}}
                                 </p>
-
-                               <div class="card border-0 p-2 shadow-sm text-center">
-                                    <img class="rounded" style="width:60; height:500px;" src="/storage/forum_cover_images/{{$forum->cover_image}}" alt="">
-                               </div>
+                                @if($forum->cover_image != "noimage.jpeg")
+                                    <div class="card border-0 p-2 shadow-sm text-center">
+                                        <img class="rounded w-100 h-100"  src="/storage/forum_cover_images/{{$forum->cover_image}}" alt="">
+                                    </div>
+                                @endif
                                @if($forum->created_at == $forum->updated_at)
                                     <div class="text-left mt-3">
                                         <i class="fa fa-calendar"></i>
@@ -77,19 +78,25 @@
                                     </div>
                                     <div class="col">
                                         <i class="fa fa-comments fa-2x"></i>
-                                        <div class="badge badge-secondary">{{$forum->comment->count()}}</div>
+                                       
+                                            @if($forum->comment->count() > 0)
+                                                <div class="badge badge-secondary">
+                                                    {{$forum->comment->count()}}
+                                                </div>
+                                            @endif
+                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-11 col-md-9 col-lg-9 my-2">
+                    <div class="col-12 col-sm-11 col-md-9 col-lg-9 mb-2">
                         <div class="p-3 bg-ash shadow-sm rounded">
                             <form action="{{action('CommentController@store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                                 <div class="input-group">
                                     <input type="hidden" name="forum" value="{{$forum->id}}">
-                                    <textarea class="form-control bg-light  rounded-left @error('comment') is-invalid @enderror" name="comment" id="" cols="30" rows="1" placeholder="Comment.."></textarea>
+                                    <textarea class="form-control bg-light  rounded-left @error('comment') is-invalid @enderror" name="comment" id="" cols="30" rows="2" placeholder="Comment.."></textarea>
                                         <button class="btn border ml-1  bg-light btn-hover rounded-right ">
                                             <i class="fa fa-comment fa-2x m-1"></i>
                                         </button>
@@ -111,7 +118,7 @@
                                     <div class="row">
                                         <div class="col-6 text-left">
                                             <div class="text-left">
-                                                <img style="width:2.2em;height:2.3em" class="rounded-circle p-1 bg-ash  shadow-sm" src="/storage/user_images/{{$forum->user->user_image}}" alt="">
+                                                <img style="width:2.2em;height:2.3em" class="rounded-circle p-1 bg-ash  shadow-sm" src="/storage/user_images/{{$comments->user->user_image}}" alt="">
                                             </div>
                                         </div>
                                         <div class="col-6 text-right">
@@ -145,13 +152,32 @@
                                         <p>{{$comments->comment}}</p>
                                     </div>
                                     <div class="text-right">
-                                        <small class="">
-                                        {{date('F D , Y' ,strtotime($comments->created_at)) }} at {{date('g:ia' ,strtotime($comments->created_at))}}
-                                        </small>
+                                        @if($comments->created_at == $comments->updated_at)
+                                        
+                                            <i class="fa fa-calendar"></i>
+                                            <small class="font-weight-normal">
+                                            {{date('F D , Y' ,strtotime($comments->created_at)) }} at {{date('g:ia' ,strtotime($comments->created_at))}}
+                                            </small>
+                                       
+                                        @else
+                                            
+                                            <span>Edited</span><br>
+                                                <i class="fa fa-calendar"></i>
+                                                <small class="font-weight-normal">
+                                                {{date('F D , Y' ,strtotime($comments->updated_at)) }} at {{date('g:ia' ,strtotime($comments->updated_at))}}
+                                                </small>
+                                           
+                                        @endif
                                     </div>
                                </div>
                                <div class="card-footer bg-white border-0 p-0">
-
+                              
+                                    <a href="/comment/{{$comments->id}}">reply
+                                        @if($comments->reply->count() > 0)
+                                            {{$comments->reply->count()}}
+                                        @else
+                                        @endif
+                                    </a>
                                </div>
                            </div>
                         </div>

@@ -36,7 +36,7 @@
 
                     <li class="nav-item">
                         <div class="input-group p-2 sidenav-item">
-                            <a class="nav-link ml-4 sidenav-link" href="welcome-forum">
+                            <a class="nav-link ml-4 sidenav-link" href="/forum">
                                 <i class="fa fa-envelope-open-text mr-3 fa-lg text-green"></i>
                                 FORUMS 
                             </a>
@@ -62,7 +62,7 @@
                     <li class="nav-item">
                         <div class="input-group p-2 sidenav-item">
                             <a class="nav-link ml-4 " href="*"  data-toggle="modal" data-target="#CreatePost"><i class="fa fa-pencil-alt pr-3 fa-lg text-green" ></i>
-                                SHARE FEELING
+                                FEELINGS
                             </a>
                         </div>
                     </li>
@@ -104,34 +104,28 @@
 
                 <!-- Volunteer -->
                 @if(Auth::user()->type == 'volunteer')
+    
                     <li class="nav-item">
-                        <div class="input-group">
-                            <a class="nav-link  text-green-blue" href="/dashboard"><i class="fa fa-hand-holding-heart  text-green-blue mr-3"></i>
-                              VOLUNTEER
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="nav-item ">
-                        <div class="input-group">
-                            <a class="nav-link" href="/dashboard"><i class="fa fa-home mr-3 "></i>
-                                HOME
+                        <div class="input-group p-2 sidenav-item">
+                            <a class="nav-link ml-4" href="/user"><i class="fa fa-home mr-3 fa-lg text-green"></i>
+                                dashboard
                             </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <div class="input-group">
-                            <a class="nav-link " href="/dashboard"><i class="fa fa-envelope-open-text mr-3"></i>
-                            FORUMS
+                        <div class="input-group p-2 sidenav-item">
+                            <a class="nav-link ml-4 sidenav-link" href="forum">
+                                <i class="fa fa-envelope-open-text mr-3 fa-lg text-green"></i>
+                                FORUMS 
                             </a>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <div class="input-group">
-                            <a class="nav-link " href="*"  data-toggle="modal" data-target="#CreatePost"><i class="fa fa-pen mr-3" ></i>
-                                SHARE FEELINGS
+                        <div class="input-group p-2 sidenav-item">
+                            <a class="nav-link ml-4 " href="*"  data-toggle="modal" data-target="#CreatePost"><i class="fa fa-pencil-alt pr-3 fa-lg text-green" ></i>
+                                FEELINGS
                             </a>
                         </div>
                     </li>

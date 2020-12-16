@@ -51,7 +51,7 @@
                             </div>
                         </div>
                         <div class="text-center bg-white shadow-sm p-2 my-1">
-                            <button class="btn btn-green-blue text-white font-weight-bold">Post  Topic</button>
+                            <button class="btn btn-green-blue text-white font-weight-bold">Update Topic</button>
                         </div>
                     </form>
                 </div>

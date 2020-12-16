@@ -1,5 +1,6 @@
 @extends('layouts.app')
     @section('content')
+
         <section class="">
             <div class="container bg-wave-top shadow ">
                 <div class="row">
